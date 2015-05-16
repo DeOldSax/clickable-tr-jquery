@@ -31,7 +31,9 @@
 
     function addClickEvent(rows) {
         rows.click(function(e) {
-            e.preventDefault();
+            if (e.target.localName == "a" || $(e.target).hasClass('disable-row-click') || $(e.target).closest('td').hasClass('disable-row-click')) {
+                return;
+            }
 
             dataEvent = $(this).data("event");
             if ( dataEvent ) {
