@@ -1,5 +1,29 @@
 # clickable-tr-jquery
 
+`.js`
+
+```javascript
+  $(document).ready(function() {
+    $('.clickable-table').clickableTable({
+        eventC : Cplaceholder
+    });
+});
+
+function eventA( e ) {
+    console.log("Running eventA: ");
+}
+
+function anotherOne( e ) {
+    console.log("I am another function");
+}
+
+function Cplaceholder( e ) {
+    console.log("I am functionC");
+}
+```
+
+`.html`
+
 ```html
   <table class="clickable-table">
     <thead>
@@ -42,9 +66,4 @@
       </tr>
     </tbody>
   </table>
-```
-
-
-```javascript
-  $('.clickable-table').clickableTable();
 ```
