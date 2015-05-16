@@ -1,37 +1,60 @@
-// TODO: 
-//
-// * build a tag only once if needed and only exchange params!
-// * think about using $.getScript() instead of a hidden a tag
-// * copy all attributes to a tag (maybe it is not a good idea if functionality breaks if two tags have these attributes)
-//
+/*
+ *  Project: https://github.com/DeOldSax/clickable-tr-jquery
+ *  Version: 0.0.1
+ *  License:
+ *
+ *  TODO
+ *  build aTag only once if needed and only exchange params!
+ *  think about using $.getScript() instead of a hidden a tag
+ *  copy all attributes to a tag (maybe it is not a good idea if functionality breaks if two tags have these attributes)
+ */
 (function ( $ ) {
 
+    var disableClickClass = 'disable-row-click';
+    var defaults = {
+        showPreviewTag : false
+    };
+    var settings;
+
     $.fn.clickableTable = function( options ) {
+        settings = $.extend( defaults, options);
+
         var rows = this.find('tr[data-href], tr[data-event]');
-        addHoverClass(rows);
+
+        rows.css("cursor", "pointer");
+        rows.find("td." + disableClickClass).css("cursor", "default");
+
         addClickEvent(rows);
 
-        settings = options;
-        buildPreviewTag();
+        if (settings.showPreviewTag) {
+            buildPreviewTag();
+            addHoverClass(rows);
+        }
 
         return this;
     };
 
     function addHoverClass(rows) {
-        rows.hover(function() {
-            $(this).css("cursor", "pointer");
+        rows.hover(function(e) {
+            if (notClickable(e)) {
+                return;
+            }
             var href = $(this).data('href');
-            if (href) {
+            if (href && !notClickable(e)) {
                showPreviewTag(href, true);
             }
+
         }, function() {
-            showPreviewTag("", false);
+            if (settings.showPreviewTag) {
+                showPreviewTag("", false);
+            }
         });
+
     }
 
     function addClickEvent(rows) {
         rows.click(function(e) {
-            if (e.target.localName == "a" || $(e.target).hasClass('disable-row-click') || $(e.target).closest('td').hasClass('disable-row-click')) {
+            if (notClickable(e)) {
                 return;
             }
 
@@ -63,6 +86,13 @@
         });
     }
 
+    function notClickable(e) {
+        return e.target.localName == "a" ||
+            e.target.localName == 'button' ||
+            $(e.target).hasClass(disableClickClass) ||
+            $(e.target).closest('td').hasClass(disableClickClass);
+    }
+
     function showPreviewTag(href, show) {
         if ( show ) $('.preview-tag').text(href).fadeIn();
         else $('.preview-tag').hide();
@@ -86,13 +116,13 @@
     }
 
     function buildATag(id) {
-        var aTag = $('<a></a>');
-        aTag.css('display', 'none');
-        aTag.attr('data-remote', isRemote);
-        aTag.attr('href', dataHref);
-        aTag.attr('id', id);
-        aTag.insertAfter($("body"));
-        return aTag;
+        var tag = $('<a></a>');
+        tag.css('display', 'none');
+        tag.attr('data-remote', isRemote);
+        tag.attr('href', dataHref);
+        tag.attr('id', id);
+        tag.insertAfter($("body"));
+        return tag;
     }
- 
+
 }( jQuery ));
