@@ -1,6 +1,6 @@
 # clickable-tr-jquery
 
-''' html
+```html
   <table class="clickable-table">
     <thead>
       <tr>
@@ -42,9 +42,9 @@
       </tr>
     </tbody>
   </table>
+```
 
-'''
 
-''' javascript
+```javascript
   $('.clickable-table').clickableTable();
-'''
+```
