@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <table class="clickable-table">
+    <thead>
+      <tr>
+        <th>Column A</th>
+        <th>Column B</th>
+        <th>Column C</th>
+        <th>Column D</th>
+        <th>Column E</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-href="http://google.de" data-event="eventA">
+        <td>Data A</td>
+        <td>Data B</td>
+        <td>Data C</td>
+        <td>Data D</td>
+        <td><a href="http://www.deoldsax.de">DeOldSax</a></td>
+      </tr>
+      <tr data-event="eventC">
+        <td>Data A</td>
+        <td>Data B</td>
+        <td>Data C</td>
+        <td><a href="http://www.web.de">WEB<a/></td>
+        <td>Data E</td>
+      </tr>
+      <tr data-href="http://www.web.de" data-event="eventA" data-remote="false">
+        <td>Data A</td>
+        <td>Data B</td>
+        <td>Data C</td>
+        <td>Data D</td>
+        <td>Data E</td>
+      </tr>
+      <tr data-href="http://www.facebook.com">
+        <td>Data A</td>
+        <td>Data B</td>
+        <td>Data C</td>
+        <td>Data D</td>
+        <td>Data E</td>
+      </tr>
+    </tbody>
+  </table>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/clickable-tr.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
