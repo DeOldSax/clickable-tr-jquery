@@ -1,14 +1,14 @@
 /*
  *  Project: https://github.com/DeOldSax/clickable-tr-jquery
  *  Version: 0.0.1
- *  License:
+ *  License: MIT
  *
  *  TODO
  *  build aTag only once if needed and only exchange params!
  *  think about using $.getScript() instead of a hidden a tag
  *  copy all attributes to a tag (maybe it is not a good idea if functionality breaks if two tags have these attributes)
  */
-(function ( $ ) {
+;(function ( $ ) {
 
     var disableClickClass = 'disable-row-click';
     var defaults = {
@@ -87,19 +87,21 @@
     }
 
     function notClickable(e) {
+        var target = $(e.target);
         return e.target.localName == "a" ||
             e.target.localName == 'button' ||
-            $(e.target).hasClass(disableClickClass) ||
-            $(e.target).closest('td').hasClass(disableClickClass);
+            target.hasClass(disableClickClass) ||
+            target.closest('td').hasClass(disableClickClass);
     }
 
     function showPreviewTag(href, show) {
-        if ( show ) $('.preview-tag').text(href).fadeIn();
-        else $('.preview-tag').hide();
+        var prevEl = $('.preview-tag');
+        if ( show ) prevEl.text(href).fadeIn();
+        else prevEl.hide();
     }
 
     function buildPreviewTag() {
-        var tag = $('<p>www.deoldsax.de</p>');
+        var tag = $('<p></p>');
         tag.addClass("preview-tag");
         tag.css({
             position: "absolute",
