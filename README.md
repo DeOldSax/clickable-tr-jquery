@@ -22,39 +22,24 @@
       <tr>
         <th>Column A</th>
         <th>Column B</th>
-        <th>Column C</th>
-        <th>Column D</th>
-        <th>Column E</th>
       </tr>
     </thead>
     <tbody>
-      <tr data-href="http://google.de" data-event="eventA">
+      <tr data-href="http://google.de" data-event="eventName">
         <td>Data A</td>
-        <td>Data B</td>
-        <td>Data C</td>
-        <td>Data D</td>
         <td><a href="http://www.deoldsax.de">DeOldSax</a></td>
       </tr>
-      <tr data-event="eventC">
-        <td>Data A</td>
-        <td>Data B</td>
+      <tr data-event="testEvent">
         <td>Data C</td>
-        <td><a href="https://news.ycombinator.com/news">HN<a/></td>
-        <td>Data E</t>d
+        <td><a href="https://github.com/DeOldSax">github @deoldsax<a/></td>
       </tr>
-      <tr data-href="http://www.web.de" data-event="eventA" data-remote="false">
-        <td>Data A</td>
+      <tr data-href="https://github.com/" data-event="eventA" data-remote="false">
+        <td class="disable-row-click">Data A</td>
         <td>Data B</td>
-        <td>Data C</td>
-        <td>Data D</td>
-        <td>Data E</td>
       </tr>
       <tr data-href="http://api.jquery.com/">
         <td>Data A</td>
         <td>Data B</td>
-        <td>Data C</td>
-        <td>Data D</td>
-        <td>Data E</td>
       </tr>
     </tbody>
   </table>
