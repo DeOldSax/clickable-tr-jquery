@@ -14,7 +14,7 @@
 	<script src="jquery-clickable-tr.js"></script>
 	```
 	
-3. Html structure
+3. HTML structure
 
   ```html
   <table class="clickable-table">
@@ -62,14 +62,14 @@
 
 4. Call the plugin:
   
-  **default**
+  * default
   ```javascript
   $(document).ready(function() {
     $('.clickable-table').clickableTable();
   });
   ```
   
-  **with callback**
+  * with callback
   ```javascript
   $(document).ready(function() {
     $('.clickable-table').clickableTable({
@@ -86,5 +86,5 @@
   }
   ```
 5. How to exclude nested elements from click event?
-  * ``<a></a>`` and ``<button></button>`` tags are excluded by default
-  * add ``disable-row-click`` to ``<td class="disable-row-click"></td>`` exclude it
+  * ``<a></a>`` and ``<button></button>`` inside ``<td></td>`` are excluded by default
+  * add ``disable-row-click`` to ``<td class="disable-row-click"></td>`` to exclude whole ``<td></td>``
