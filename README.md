@@ -1,40 +1,5 @@
 # clickable-tr-jquery
 
-  <html>
-    <head>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-      <script src="js/jquery-clickable-tr.js"></script>
-    </head>
-    <body>
-      <table class="clickable-table">
-	    <thead>
-	      <tr>
-	        <th>Column A</th>
-	        <th>Column B</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-		      <tr data-href="http://google.de" data-event="eventName">
-		        <td>Data A</td>
-		        <td><a href="http://www.deoldsax.de">DeOldSax</a></td>
-		      </tr>
-		      <tr data-event="testEvent">
-		        <td>Data C</td>
-		        <td><a href="https://github.com/DeOldSax">github @deoldsax<a/></td>
-		      </tr>
-		      <tr data-href="https://github.com/" data-event="eventA" data-remote="false">
-		        <td class="disable-row-click">Data A</td>
-		        <td>Data B</td>
-		      </tr>
-		      <tr data-href="http://api.jquery.com/">
-		        <td>Data A</td>
-		        <td>Data B</td>
-		      </tr>
-        </tbody>
-		  </table>
-    </body>
- </html>
-
 ## Usage
 
 1. Include jQuery:
