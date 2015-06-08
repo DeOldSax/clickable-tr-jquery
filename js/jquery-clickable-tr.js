@@ -6,6 +6,7 @@
 ;(function ( $ ) {
 
     var disableClickClass = 'disable-row-click';
+    var enableClickClass = 'enable-row-click';
     var defaults = {};
     var settings;
 
@@ -13,14 +14,33 @@
         settings = $.extend( defaults, options);
 
         var rows = this.find('tr[data-href], tr[data-event]');
-
-        rows.css("cursor", "pointer");
-        rows.find("td." + disableClickClass).css("cursor", "default");
-
+        addPointer(rows);
         addClickEvent(rows);
+
+        var checkbox = this.find('input[type=checkbox].' + enableClickClass);
+        checkboxRow = checkbox.parents('tr');
+        addPointer(checkboxRow);
+        addCheckboxEvent(checkboxRow);
 
         return this;
     };
+
+    function addPointer(el) {
+      el.css("cursor", "pointer");
+      el.find("td." + disableClickClass).css("cursor", "default");
+    }
+
+    function addCheckboxEvent(rows) {
+        rows.click(function(e) {
+            if (notClickable(e)) {
+                return;
+            }
+            var checkbox = $(this).find("." + enableClickClass);
+            if (checkbox.length > 0) {
+                checkbox.prop("checked", !checkbox.prop("checked"));
+            }
+        });
+    }
 
     function addClickEvent(rows) {
         rows.click(function(e) {
