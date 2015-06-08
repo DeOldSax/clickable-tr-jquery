@@ -1,30 +1,22 @@
 # clickable-tr-jquery
 
-`.js`
+## Usage
 
-```javascript
-  $(document).ready(function() {
-    $('.clickable-table').clickableTable({
-        eventC : Cplaceholder
-    });
-});
+1. Include jQuery:
 
-function eventA( e ) {
-    console.log("Running eventA: ");
-}
+	```html
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	```
 
-function anotherOne( e ) {
-    console.log("I am another function");
-}
+2. Include plugin's code:
 
-function Cplaceholder( e ) {
-    console.log("I am functionC");
-}
-```
+	```html
+	<script src="jquery-clickable-tr.js"></script>
+	```
+	
+3. Html structure
 
-`.html`
-
-```html
+  ```html
   <table class="clickable-table">
     <thead>
       <tr>
@@ -66,4 +58,33 @@ function Cplaceholder( e ) {
       </tr>
     </tbody>
   </table>
-```
+  ```
+
+4. Call the plugin:
+  
+  **default**
+  ```javascript
+  $(document).ready(function() {
+    $('.clickable-table').clickableTable();
+  });
+  ```
+  
+  **with callback**
+  ```javascript
+  $(document).ready(function() {
+    $('.clickable-table').clickableTable({
+      eventName : callback
+    });
+  });
+
+  function callback(e) {
+    console.log(e);
+  }
+
+  function testEvent(e) {
+    console.log(e);
+  }
+  ```
+5. How to exclude nested elements from click event?
+  * ``<a></a>`` and ``<button></button>`` tags are excluded by default
+  * add ``disable-row-click`` to ``<td class="disable-row-click"></td>`` exclude it
